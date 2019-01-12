@@ -33,9 +33,9 @@ function ratesAverage(films) {
         film.rate = 0;
       }
   
-      return acc + parseInt(film.rate);
+      return acc + parseFloat(film.rate);
     }, 0);
-    return parseInt((sum / films.length).toFixed(2));
+    return parseFloat((sum / films.length).toFixed(2));
   }
 
 // Get the average of Drama Movies
@@ -83,5 +83,30 @@ function howManyMovies(films) {
 
 // Order by title and print the first 20 titles
 
+ 
+function orderAlphabetically(films) {
+
+    var alpha = films.sort(function(a,b){
+
+        a.title.toUpperCase(); 
+        b.title.toUpperCase();
+        
+    if (a.title < b.title) {
+      return -1;
+    }
+    if (a.title > b.title) {
+      return 1;
+    }
+
+    })
+    
+    var title = alpha.map(function(film){
+              return film.title
+    })
+    return title.slice(0, 20);
+  }
+
 
 // Best yearly rate average
+
+
